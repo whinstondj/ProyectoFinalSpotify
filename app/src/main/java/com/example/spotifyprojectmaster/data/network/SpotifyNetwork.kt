@@ -38,7 +38,7 @@ class SpotifyNetwork {
 
 
         // App token
-        val accessToken = "BQBXcKVk7ikJKjsgf5AVhTR_sH_VCiXcuYTIYX6qBwt5dKKo59iqq3qfvjYqCmkIGBsdlN_sl_jXF0ls2rg"
+        val accessToken = "BQDsLQuYMb0vfhkjYl3WjKDY2uhRfaF3tuyx6JHjObHapG9KeuaWCGELNKrW9UeeKnPaMr1iclbUQEPidzU"
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
                     .addHeader("Authorization", "Bearer $accessToken")
