@@ -1,4 +1,4 @@
-package es.adriiiprieto.marvelproject.base
+package com.example.spotifyprojectmaster.base
 
 import java.io.Serializable
 

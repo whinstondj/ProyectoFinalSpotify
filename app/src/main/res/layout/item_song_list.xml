@@ -8,34 +8,69 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/itemCharacterListImageViewLogo"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@id/itemSongListImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription"
-            tools:srcCompat="@android:drawable/sym_def_app_icon" />
+            tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/itemCharacterListTextViewName"
-            android:layout_width="wrap_content"
+            android:id="@+id/itemSongListTextViewSongName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/nunito"
-            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/chivo_black_italic"
+            android:textColor="@color/yellow_900"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/itemSongListTextViewAlbumName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/itemSongListImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Cancion Uno" />
+
+        <TextView
+            android:id="@+id/itemSongListTextViewAlbumName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/chivo"
+            android:textColor="@color/yellow_800"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/itemSongListTextViewArtistName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/itemSongListImageView"
+            app:layout_constraintTop_toBottomOf="@+id/itemSongListTextViewSongName"
+            tools:text="Album Name" />
+
+        <TextView
+            android:id="@+id/itemSongListTextViewArtistName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/chivo"
+            android:textColor="@color/yellow_800"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemCharacterListImageViewLogo"
-            tools:text="3-D Man" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/itemSongListImageView"
+            app:layout_constraintTop_toBottomOf="@+id/itemSongListTextViewAlbumName"
+            tools:text="Artistas" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,13 +10,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class SpotifyNetwork {
+class SpotifyAuthNetwork {
 
     lateinit var service: SpotifyService
 
     private fun loadRetrofit() {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.spotify.com/")
+                .baseUrl("https://accounts.spotify.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createHttpClient())
                 .build()
@@ -42,7 +42,6 @@ class SpotifyNetwork {
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
                     .addHeader("Authorization", Credentials.basic("a9254de97adc4e71848808621413c24d","af967b719bd040aeb0fed95d050e1fef"))
-                            //"Bearer $accessToken")
                     .build()
             chain.proceed(request)
         }
@@ -51,15 +50,8 @@ class SpotifyNetwork {
     }
 
 
-    suspend fun getAllSongs(playListId: String): ResponseAllSongsDataModel {
+    suspend fun getToken(playListId: String): ResponseAllSongsDataModel {
         loadRetrofit()
         return service.getSongs(playListId)
     }
-
-    suspend fun getArtistInfo(artistId: String): ResponseArtistDataModel {
-        loadRetrofit()
-        return service.getArtist(artistId)
-    }
-
-
 }
