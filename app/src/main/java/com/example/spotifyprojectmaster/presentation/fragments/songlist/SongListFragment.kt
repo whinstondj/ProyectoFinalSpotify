@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,15 +43,24 @@ class SongListFragment : Fragment() {
     }
 
     private fun setupView() {
+        binding.fragmentListProgressBar.visibility = View.VISIBLE
         // Setup recycler view
         mAdapter = SongListAdapter(listOf(), requireActivity()) { itemTrack ->
-            Toast.makeText(requireActivity(), itemTrack.track.artists[0].id, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(SongListFragmentDirections.actionSongListFragmentToSongDetailFragment(itemTrack.track.artists[0].id))
+        //Toast.makeText(requireActivity(), itemTrack.track.artists[0].id, Toast.LENGTH_SHORT).show()
         }
         binding.fragmentSongListRecyclerView.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
             itemAnimator = DefaultItemAnimator()
         }
+
+        // Set swipe refresh gesture
+        binding.fragmentListSwipeRefreshLayout.setOnRefreshListener {
+            mAdapter.updateList(listOf())
+            viewModel.requestInformation("6Qf2sXTjlH3HH30Ijo6AUp")
+        }
+
     }
 
     private fun onError(dataError: Throwable) {
@@ -58,10 +68,12 @@ class SongListFragment : Fragment() {
     }
 
     private fun onLoading(dataLoading: BaseExtraData?) {
-
+        binding.fragmentListProgressBar.visibility = View.VISIBLE
     }
 
     private fun onNormal(songListState: SongListState) {
+        binding.fragmentListProgressBar.visibility = View.GONE
+        binding.fragmentListSwipeRefreshLayout.isRefreshing = false
         mAdapter.updateList(songListState.songList)
     }
 

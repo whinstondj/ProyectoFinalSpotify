@@ -4,6 +4,7 @@ import com.example.spotifyprojectmaster.data.model.ItemTrack
 import com.example.spotifyprojectmaster.data.model.ResponseAllSongsDataModel
 import com.example.spotifyprojectmaster.data.model.ResponseArtistDataModel
 import com.example.spotifyprojectmaster.data.network.SpotifyNetwork
+import java.lang.Exception
 
 class SpotifyRepository {
 
@@ -12,6 +13,9 @@ class SpotifyRepository {
     }
 
     suspend fun getArtistInfo(artistId: String): ResponseArtistDataModel {
-        return SpotifyNetwork().getArtistInfo(artistId)
+        val response = SpotifyNetwork().getArtistInfo(artistId)
+        return if (response.id.isNotEmpty()) response else throw NoArtistException()
     }
 }
+
+class NoArtistException: Exception ()

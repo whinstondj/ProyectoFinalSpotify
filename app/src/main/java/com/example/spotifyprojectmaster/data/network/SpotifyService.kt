@@ -11,6 +11,6 @@ interface SpotifyService {
     @GET("v1/playlists/{playlistId}/")
     suspend fun getSongs(@Path("playlistId") playListId: String): ResponseAllSongsDataModel
 
-    @GET("v1/artists/{artistId}/")
+    @GET("v1/artists/{artistId}")
     suspend fun getArtist(@Path("artistId") artistId: String): ResponseArtistDataModel
 }
