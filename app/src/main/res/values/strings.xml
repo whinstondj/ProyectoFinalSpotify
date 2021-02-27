@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SpotifyProjectMaster</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fristFragmentTitleText">Playlist para subir el animo</string>
+    <string name="ArtistDetailFragmentScreenTitle">Detalles del Artista</string>
+    <string name="homePlaylistDrawerMenuText">Home Playlist</string>
+    <string name="FollowersDetailsFragmentText">Followers: </string>
+    <string name="PopularityDetailsFragmentText">Popularity: </string>
+    <string name="artistDetailFragmentButtonText">Abrir Artista en Pagina de Spotify</string>
 </resources>
